@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./Dist/output.css" />
+
+    <style>
+        .container{
+            width: 240px;
+            height: 100px;
+        }
+        .food{
+            height: 150px;
+            border-radius: 10px;
+            width: 150px;
+            margin-left: 85px;
+        }
+        .result{
+            width: 400px;
+        }
+        .phrase{
+            width: 600px;
+        }
+        .foodivs{
+            width: 320px;
+            height: auto;
+        }
+        .bordesin{
+            border-left: 40px solid rgba(192, 192, 192, 0.315);
+            border-right: 40px solid rgba(192, 192, 192, 0.432);
+            margin-left: 248px;
+            margin-right: 248px;
+            background: rgb(192, 192, 192, .8);
+        }
+        .orderbtn{
+            width: 207px;
+        }
+        .addimg{
+            width: 565px;
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+        <section class="bordesin text-lg">
+            <h1 class="mb-12 pt-12 text-center text-4xl font-bold">Graduated Group: ISW BIS 2018</h1>
+            <h1 class="font-bold text-3xl">Choose your pic:</h1>
+            <div class="result m-auto" id="result"></div>
+            <div class="container flex m-auto">
+                <form id="form" enctype="multipart/form-data" method="POST">
+                    <div>
+                        <input type="file" id="image">
+                    </div>
+                    <div class="mt-2 flex">
+                        <button class="w-24 text-center border-solid border-black bg-black text-white border-2 rounded-md hover:border-stone-500 hover:bg-stone-500" onclick="ref()">Upload</button>
+                        <div class="w-12 text-white">x</div>
+                        <button class="w-24 text-center border-solid border-black bg-black text-white border-2 rounded-md hover:border-stone-500 hover:bg-stone-500" onclick="remove()">Remove</button>
+                    </div>
+                </form>
+            </div>
+            <h1 class="font-bold text-3xl mb-8">Write your phrase(s):</h1>
+            <form class="flex" action="" method="POST">
+                <div class="m-auto flex">
+                        <input class="phrase text-center border-solid border-black bg-white text-black border-2 rounded-md hover:bg-gray-200" type="text" name="phrase" placeholder="Phrase...">
+                        <button class="w-24 ml-4 text-center border-solid border-black bg-black text-white border-2 rounded-md hover:border-stone-500 hover:bg-stone-500" type="submit">Upload</button>
+                </div>
+                <div class="text">
+
+                </div>
+            </form>
+            <div>
+                {{#each phrases}}
+                    <p class="text-center">{{phrase}}</p>
+                {{/each}}
+            </div>
+
+            <div>
+                <h1 class="font-bold text-3xl">Menu</h1>
+                <h2 class="font-semibold text-2xl text-center">Main Course</h2>
+                <section class="flex">
+                        <div class="foodivs">
+                            <img class="food" src="images/steak.jpg" alt="steak with spaguetti and salad image">
+                            <h3 class="text-xl text-center">Steak, Spaggueti and Salad</h3>
+                        </div>
+                        <div class="foodivs">
+                            <img class="food" src="images/chicken.jpg"alt="chicken with smashed potatoes and vegetables image">
+                            <h3 class="text-xl text-center">Chicken, Potatoes and Vegetables</h3>
+                        </div>
+                        <div class="foodivs">
+                            <img class="food" src="images/fish.jpg"alt="fish with rice and salad image">
+                            <h3 class="text-xl text-center">Fish, Rice and Salada</h3>
+                        </div>
+                </section class="flex">
+                    <h2 class="font-semibold text-2xl text-center mt-10">Dessert</h2>
+                    <section class="flex">
+                    <div class="foodivs">
+                        <img class="food" src="images/cheescake.jpeg"alt="cheescake image">
+                        <h3 class="text-xl text-center">Cheescake</h3>
+                    </div>
+                    <div class="foodivs">
+                        <img class="food" src="images/chocolate.jpeg"alt="chocolate souffle image">
+                        <h3 class="text-xl text-center">Chocolate Souffle</h3>
+                    </div>
+                    <div class="foodivs">
+                        <img class="food" src="images/tiramisu.jpeg"alt="tiramisu image">
+                        <h3 class="text-xl text-center">Tiramisu</h3>
+                    </div>
+                </section>
+                <h3 class="font-semibold text-2xl text-center mt-10">Make your Order!</h2>
+                <div>
+                    <form class="flex" action="/hom" method="POST">
+                        <div class="m-auto py-4">
+                            <div class="py-2">
+                                <input class="text-center border-solid border-black bg-white text-black border-2 rounded-md hover:bg-gray-200" type="text" name="user" placeholder="User">
+                            </div>
+                            
+                            <div class="py-2">
+                                <input class="text-center border-solid border-black bg-white text-black border-2 rounded-md hover:bg-gray-200" type="text" name="person" placeholder="Person">
+                            </div>
+
+                            <div class="py-2">
+                                <input class="text-center border-solid border-black bg-white text-black border-2 rounded-md hover:bg-gray-200" type="text" name="maincourse" placeholder="Main Course">
+                            </div>
+
+                            <div class="py-2">
+                                <input class="text-center border-solid border-black bg-white text-black border-2 rounded-md hover:bg-gray-200" type="text" name="dessert" placeholder="Dessert">
+                            </div>
+
+                            <div class="py-2">
+                                <input class="text-center border-solid border-black bg-white text-black border-2 rounded-md hover:bg-gray-200" type="number" name="tab" placeholder="Table">
+                            </div>
+
+                            <div class="py-2">
+                                <button class="orderbtn text-center border-solid border-black bg-black text-white border-2 rounded-md hover:border-stone-500 hover:bg-stone-500" type="submit">Send Your Order!</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <h1 class="font-bold text-3xl">Place Address</h1>
+            <div class="flex">
+                <img class="addimg" src="images/bicentenario.jpeg" alt="Bicentenario Imagen">
+                <div class="text-center items-center">
+                    <h3 class="font-semibold">-Centro Cultural y de Convenciones Bicentenario</h3>
+                    <h3 class="font-semibold">-Colonia Obrera, Silvestre Dorador 34070, Durango Dgo</h3>
+                    <a class="text-center border-solid border-black bg-black text-white border-2 rounded-md hover:border-stone-500 hover:bg-stone-500" href="https://goo.gl/maps/cC41RgJS5ecUZK2f7">GOOGLE MAPS</a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <script>
+        var form = document.getElementById('form');
+
+        var parent = document.getElementById('result');
+
+        var t = document.getElementById('text');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault()
+
+            var reader = new FileReader()
+
+            var name = document.getElementById('image').files[0].name;
+
+            reader.addEventListener('load', function(){
+                if(this.result && localStorage){
+                    window.localStorage.setItem(name, this.result)
+                    res.innerHTML = ''
+                    showImages()
+                }
+                else{
+                    alert('Your image cannot be uploaded please try it later')
+                }
+            })
+
+            reader.readAsDataURL(document.getElementById('image').files[0])
+
+            console.log(name);
+        })
+
+        function showImages(){
+            for(let i=0; i<window.localStorage.length; i++){
+                let res = window.localStorage.getItem(window.localStorage.key(i))
+                var image = new Image()
+                image.src = res;
+
+                parent.appendChild(image);
+
+            }
+        }
+        function ref(){
+            location.reload();
+        }
+
+        function remove(){
+            window.localStorage.clear()
+            parent.innerHTML = ''
+        }
+        
+        showImages();
+
+
+    </script>
+
+</body>
+</html>

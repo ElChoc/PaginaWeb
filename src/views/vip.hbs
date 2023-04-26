@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Dist/output.css" />
+    
+    <title>VIP</title>
+
+    <style>
+        .qr{
+            width: 180px;
+            height: 180px;
+            background: url(images/qrcode.png);
+        }
+        .img1{
+            width: 250px;
+            height: 250px;
+            background: url(images/pollofeliz.jpeg);
+        }
+        .img2{
+            width: 250px;
+            height: 250px;
+            background: url(images/tortillas.jpeg);
+        }
+        .img3{
+            width: 250px;
+            height: 250px;
+            background: url(images/oxxo.jpg);
+        }
+        .img4{
+            width: 250px;
+            height: 250px;
+            background: url(images/dance.jpeg);
+        }
+        .img5{
+            width: 250px;
+            height: 250px;
+            background: url(images/aurrera.jpg);
+        }
+        .img6{
+            width: 250px;
+            height: 250px;
+            background: url(images/bancoazteca.jpg);
+        }
+        .bgw{
+            background: rgba(255, 255, 255, 0.7);
+            width: 850px;
+            height: 620px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <section class="bgw m-auto">
+    <h2 class="text-2xl font-semibold text-center pt-6 pb-6">Click in any image to display the QR code</h2>
+   <div style="margin-left:50px" class="pb-6">
+      <section class="flex m-auto">
+        <div id="1" class="img img1"></div>
+        <div id="2" class="img img2"></div>
+        <div id="3" class="img img3"></div>
+      </section>
+      <section class="flex m-auto">
+        <div id="4" class="img img4"></div>
+        <div id="5" class="img img5"></div>
+        <div id="6" class="img img6"></div>
+      </section>
+    </div>
+    </section>
+
+    <script>
+        const imgs = document.querySelectorAll('.img');
+
+        let el;
+        let id;
+
+        for(img of imgs){
+            img.addEventListener("click", e => {
+                id = e.target.getAttribute("id");
+                console.log("Se ha clickeado el id "+id);
+                
+                el = document.getElementById(id);
+                el.classList.remove('img'+id);
+                el.classList.add('qr');
+
+                setTimeout(close, 10000);
+            
+            });
+        }
+
+        function close(){
+            let x = 1;
+            console.log('closing')
+            for (img of imgs){
+                img.classList.remove('qr');
+                img.classList.add('img'+x)
+                x += 1;
+            };
+        }
+        
+    </script>
+
+</body>
+</html>

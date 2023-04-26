@@ -1,0 +1,75 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./Dist/output.css" />
+
+    <style>
+      .logo{
+         width: 120px; height: 120px; 
+         } 
+      .scrollbar-hide::-webkit-scrollbar {
+      display: none; 
+      } 
+      .fondomain{ 
+        background: url(./images/bg.jpg); 
+        }
+    </style>
+
+  </head>
+  <body class="scrollbar-hide">
+    <header
+      class="sticky top-0 z-30 w-full flex bg-blue-950 h-40 text-gray-650 text-center items-center justify-between px-4"
+    >
+      <img class="logo" src="images/iswlogo.png" alt="" />
+      <section class="align-middle">
+        <h1 class="font-bold text-6xl">ISW GRADUATION 2019-2023</h1>
+        <div class="text-xl">
+          <a
+            class="border-solid border-black border-b-2 hover:border-stone-600 hover:text-stone-600"
+            href="/gallery"
+          >Gallery</a>
+          <a
+            class="border-solid border-black border-b-2 hover:border-stone-600 hover:text-stone-600"
+            href="/partyroom"
+          >Party Room</a>
+          <a
+            class="border-solid border-black border-b-2 hover:border-stone-600 hover:text-stone-600"
+            href="/vip"
+          >VIP</a>
+        </div>
+      </section>
+      <section>
+        <button class="">
+            <a href="/logout">Log Out</a>
+          </button>
+          <section class="w-24">
+            <button
+              class="w-24 border-solid border-white bg-white text-black border-2 rounded-md hover:border-stone-500 hover:bg-stone-500"
+            >
+              <a href="/login">Log In</a>
+            </button>
+            <button
+              class="w-24 border-solid border-white border-b-2 hover:border-stone-500 hover:text-stone-500"
+            >
+              <a href="/register">Sign Up</a>
+            </button>
+          </section>
+      </section>
+    </header>
+
+    <section class="fondomain">
+      {{{body}}}
+    </section>
+
+    <footer class="bg-blue-950 h-20 text-gray-650 font-bold text-2xl text-center">
+      <div>
+        <h1>GREAT MOMENTS HAPPEN ONCE IN YOUR LIFE!</h1>
+        <H1>Graduation 2023</H1>
+      </div>
+    </footer>
+
+  </body>
+</html>

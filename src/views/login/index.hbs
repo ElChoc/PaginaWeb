@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Dist/output.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="font-bold text-2xl text-center" style="padding-top: 180px;">LOG
+      IN</h1>
+
+    <form
+      class="m-auto"
+      style="height: 283px; width:250px;"
+      action=""
+      method="POST"
+    >
+
+      <div class="m-auto" style="margin-top:10px; margin-bottom:10px;">
+        <input
+          class="font-semibold text-xl text-center border-solid border-black bg-white text-black border-2 rounded-md hover:bg-gray-200"
+          type="email"
+          name="email"
+          placeholder="Email"
+        />
+      </div>
+
+      <div class="m-auto" style="margin-top:10px; margin-bottom:10px;">
+        <input
+          class="font-semibold text-xl text-center border-solid border-black bg-white text-black border-2 rounded-md hover:bg-gray-200"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+      </div>
+
+      <div style=" margin-left:60px;">
+        <button
+          class="w-24 ml-4 text-center border-solid border-black bg-black text-white border-2 rounded-md hover:border-stone-500 hover:bg-stone-500"
+          type="submit"
+        >Log In</button>
+      </div>
+
+      {{#if error}}
+        <p>{{error}}</p>
+      {{/if}}
+
+    </form>
+  </body>
+</html>
